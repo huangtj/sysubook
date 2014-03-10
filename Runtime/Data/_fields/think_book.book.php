@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'disc', '_autoinc' => false, '_pk' => 'id', '_type' => array ( 'id' => 'varchar(8)', 'disc' => 'tinyint(1)', ), );?>

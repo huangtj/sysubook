@@ -1,0 +1,15 @@
+<?php 
+	session_start();
+    if(!isset($_SESSION['student']))
+        header(('Location:index.php/Index/'));
+?>
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>sysu图书管理平台</title>
+	<link rel="stylesheet" type="text/css" href="/booksae/static/css/style.css" />
+	<link href="/booksae/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="/booksae/static/js/jquery-1.10.2.js"></script>
+	<script src="/booksae/bootstrap/js/bootstrap.min.js"></script>
+</head>

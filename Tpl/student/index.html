@@ -1,0 +1,94 @@
+<include file="stuHead"/>
+
+<body>
+  <div id="header">
+    <div id="logo">
+      <h1>sysu图书管理平台</h1>
+    </div>
+    <div id="menu">
+      <ul>
+        <li>
+          <a href='logout'>退出</a>
+        </li>
+        <li>
+          <a href='setting'>修改密码</a>
+        </li>
+        <li>
+          <a href="">{$student}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="span2"></div>
+        <div class="span9">
+          <fieldset>
+            <legend>查询主页</legend>
+            <p>&nbsp;</p>      
+        </fieldset>
+            <h4>书籍/光盘查找：</h4>
+          <form  class="form-horizontal" method="get" id="search" action="{:U('Student/search')}">
+            <div class="input-append" style="padding-left: 100px">
+                <input class="span4" id="bookname" type="text" name="itemname" placeholder="输入书名/光盘名"/>
+                <button class="btn " type="button" id="confirm">确定</button>
+                
+             </div>
+             &nbsp;
+             <button class="btn btn-primary" type="button" onClick="window.location='stuLibrary'">去书库看看</button>
+           </form>
+            <script>
+                     $(function(){
+                     	$('#confirm').click(function(){
+                     	if($('itemname').val()!="")
+                            $('#search').submit();
+                    });
+                  });
+            </script>
+             
+        <h4>我的借书记录</h4>
+        <!--显示借书记录-->
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th >书号/光盘号</th>
+              <th >title</th>
+              <th >借书日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name="rlist" item="vo">
+            <tr>
+              <td>{$vo.id}</td>
+                <td >{$vo.title}</td>
+                <td >{$vo.date}</td>
+            </tr>
+            </foreach>
+          </tbody>
+        </table>
+       
+        <h4>我的预订记录</h4>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th >书号/光盘号</th>
+              <th >title</th>
+              <th >预订日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name="olist" item="vo">
+            <tr>
+              <td>{$vo.id}</td>
+                <td >{$vo.title}</td>
+                <td >{$vo.date}</td>
+            </tr>
+            </foreach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

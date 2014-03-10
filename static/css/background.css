@@ -1,0 +1,25 @@
+/* Menu */
+.menu {float: right;}
+.menu ul {margin: 0;padding: 69px 0 0 0;list-style: none;}
+.menu li {display: inline;}
+.menu a {display: block;float: right;height: 22px;margin-left: 2px;padding: 8px 15px 0 15px;border-bottom: none;text-decoration: none;color: #878C66;}
+.menu a:hover{text-decoration:underline;}
+
+/* Logo */
+.logo {float: left;padding: 42px 0 0 0;}
+.logo * {margin: 0;text-decoration: none;font-weight: normal;color: #878C66;}
+.logo h1 {letter-spacing: -2px;font-size: 2.8em;}
+.logo h2 {margin-top: -5px;padding-left: 2px;font-size: 1em;}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #FFFFFF url(../images/img1.gif) repeat-x;
+	font: normal small sans-serif;
+	color: #000000;
+}
+.headerset {
+	width: 800px;
+	height: 140px;
+	margin: 0 auto;
+}

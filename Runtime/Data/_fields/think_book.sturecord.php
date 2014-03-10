@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'stu_id', 1 => 'item_id', 2 => 'date', '_autoinc' => false, '_pk' => 'item_id', '_type' => array ( 'stu_id' => 'varchar(8)', 'item_id' => 'varchar(8)', 'date' => 'date', ), );?>

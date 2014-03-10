@@ -1,0 +1,83 @@
+<include file="stuHead"/>
+
+<body>
+  <div id="header">
+    <div id="logo">
+      <h1>sysu图书管理平台</h1>
+    </div>
+    <div id="menu">
+      <ul>
+        <li>
+          <a href='logout'>退出</a>
+        </li>
+        <li>
+          <a href='setting'>修改密码</a>
+        </li>
+        <li>
+        	<a href="index">返回主页</a>
+        </li>
+        <li>
+          <a href="">{$student}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="span2"></div>
+        <div class="span9">
+        <table class="table table-bordered table-hover">
+	        <thead>
+	          <tr>
+	            <th >书号/光盘号</th>
+	            <th >title</th>
+	            <th >类别</th>
+	            <th >是否在馆</th>
+	            <th >预订</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        	<foreach name="book" item="vo">
+	        	<tr>
+	        		<td>{$vo.id}</td>
+	            	<td >{$vo.title}</td>
+	            	<td >书籍</td>
+		            <td >
+		            	<if condition="($vo.avail eq 0)">借出
+						 <else />在馆
+						 </if>
+		            </td>
+		            <td >
+		            	<if condition="($vo.avail eq 0)">已借出
+						 <elseif condition="$vo.preorder eq 1"/>已被预订
+						 <else /><a href="email/id/'{$vo.id}'">预订</a>
+						 </if>
+		            </td>
+		        </tr>
+		        </foreach>
+		        <foreach name="disc" item="vo">
+	        	<tr>
+	        		<td>{$vo.id}</td>
+	            	<td >{$vo.title}</td>
+	            	<td >光盘</td>
+		            <td >
+		            	<if condition="($vo.avail eq 0)">借出
+						 <else />在馆
+						 </if>
+		            </td>
+		            <td >
+		            	<if condition="($vo.avail eq 0)">已借出
+						 <elseif condition="$vo.preorder eq 1"/>已被预订
+						 <else /><a href="email/id/'{$vo.id}'">预订</a>
+						 </if>
+		            </td>
+		        </tr>
+		        </foreach>
+	        </tbody>
+      	</table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
