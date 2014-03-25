@@ -1,5 +1,5 @@
 <?php
-
+header("Content-type: text/html; charset=utf-8"); 
 class StudentAction extends Action {
     public function index(){
     	$this->assign('student',$_SESSION['student']);
@@ -47,18 +47,19 @@ class StudentAction extends Action {
 		$this->assign('item',$_GET['itemname']);
 		
 		$Model = M('book');
-		$map['title']  = array('like',$item);
+		$map['title']  = array('like','%'.$item.'%');
 		$book=$Model->join("think_item on think_item.id=think_book.id")->where($map)->select();
-		//$book_num=$book->count();
+		$book_num=$Model->join("think_item on think_item.id=think_book.id")->where($map)->count();
 		$this->assign('book',$book);
-		echo $Model->getLastSql();
+		//echo $Model->getLastSql();
 		$Model = M('disc');
 		$disc=$Model->join("think_item on think_item.id=think_disc.disc_id")->where($map)->select();
-		//$disc_num=$disc->count();
+		//echo $Model->getLastSql();
+		$disc_num=$Model->join("think_item on think_item.id=think_disc.disc_id")->where($map)->count();
 		$this->assign('disc',$disc);
 		$num=$disc_num+$book_num;
 		$this->assign('num',$num);
-		
+		$this->display();
 	}
 	public function stuLibrary(){
 		$this->assign('student',$_SESSION['student']);

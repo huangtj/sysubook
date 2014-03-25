@@ -1,0 +1,44 @@
+<include file="adminhead"/>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="span2"></div>
+        <div class="span9">
+          <fieldset>
+            <legend>还书</legend>
+            <p>&nbsp;</p>
+            <if condition="$error eq 1">
+            <div class="alert alert-error">{$errormsg}</div>
+            <elseif condition="$success eq 1"/>
+            <div class="alert alert-success">{$successmsg}</div>
+            </if>
+            <form class="form-horizontal" method="post" action="returnop">
+              <div class="control-group">
+                 <label class="control-label">学生学号：</label>
+                <div class="controls">
+                 <input id="stunum" type="text" name="stunum" placeholder="输入学号" value="{$sid}"/>
+                </div>
+              </div>
+              <div class="control-group">
+                 <label class="control-label">书号/光盘号：</label>
+                <div class="controls">
+                <input type="text" placeholder="输入书号或光盘号" id="itemid" name="itemid" value="{$iid}">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button id= "confirm" class="btn btn-primary">确认</button>
+                 </div>
+              </div>
+          </form>
+          </fieldset>
+          <script>
+                     $('#confirm').click(function(){
+                            $('#query').submit();
+                    });
+          </script>
+    </div>
+  </div>
+</div>
+</div>
+</body>

@@ -1,0 +1,40 @@
+<include file="adminhead"/>
+  <div class="container">
+    <div class="row">
+        <legend>书籍预订列表</legend>
+        <p>&nbsp;</p>
+        <if condition="$error eq 1">
+        <div class="alert alert-error">{$errormsg}</div>
+        <elseif condition="$success eq 1"/>
+        <div class="alert alert-success">{$successmsg}</div>
+        </if>
+        <!--显示记录-->
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th >日期</th>
+              <th >学号</th>
+              <th >姓名</th>
+              <th>电子邮件</th>
+              <th >书号/光盘号</th>
+              <th >书名/光盘名</th>
+              <th >处理</th>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name="order" item="vo">
+            <tr>
+              <td>{$vo.date}</td>
+              <td >{$vo.stu_id}</td>
+              <td >{$vo.name}</td>
+              <td >{$vo.email}</td>
+              <td >{$vo.item_id}</td>
+              <td >{$vo.title}</td>
+              <td ><a href="preorder?s_id='{$vo.stu_id}'&item_id='{$vo.item_id}'">处理完后请点击此处</a></td>
+            </tr>
+            </foreach>
+          </tbody>
+        </table>
+  </div>
+</div>
+</body>

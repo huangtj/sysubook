@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="/booksae/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" type="text/css" href="/booksae/static/css/style.css" />
+  <script src="/booksae/static/js/jquery-1.10.2.js"></script>
+  <script src="/booksae/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/booksae/static/js/addcd.js"></script>
+</head>
+<body>
+  <div id="header">
+    <div id="logo">
+      <h1>sysu图书管理平台</h1>
+    </div>
+    <div id="menu">
+      <ul>
+        <li>
+          <a href="logout">退出</a>
+        </li>
+        <li>
+          <a href="index">返回主页</a>
+        </li>
+        <if condition="$loginname eq 'super'">
+          <li><a href="addadmin">添加二级管理员账号</a></li>
+        </if>
+        <li>
+          <a href="">{$loginname}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+	<div class="container">
+    	<div class="row">
+        	<div class="span1"></div>
+            <div class="span10">
+                 <div class="page-header">
+                 <h4>添加书库CD</h4>
+                 </div>
+                 <if condition="$error eq 1">
+	            <div class="alert alert-error">{$errormsg}</div>
+	            <elseif condition="$success eq 1"/>
+	            <div class="alert alert-success">{$successmsg}</div>
+	            </if>
+	           <form class="form-horizontal" id="cdform" method="post" action="addcdop">
+	              <div id="cdnumgroup" class="control-group">
+	                <label class="control-label">CD编号:</label>
+	                <div class="controls">
+	                  <input  type="text" class="textset" name="inputcdnum" value="{$id}"/>
+	                  <span class="help-inline"></span>
+	                </div>
+	              </div>
+	
+	              <div id="cdnamegroup" class="control-group">
+	                <label class="control-label">CD名字:</label>
+	                <div class="controls">
+	                  <input  type="text" class="textset" name="inputcdname" value="{$title}"/>
+	                  <span class="help-inline"></span>
+	                </div>
+	              </div>
+	              <div id="booknumgroup" class="control-group">
+	                <label class="control-label">对应书籍编号:</label>
+	                <div class="controls">
+	                  <input type="text" class="textset" name="inputbooknum" value="{$book_id}"/>
+	                  <span class="help-inline"></span>
+	                </div>
+	              </div>
+	             
+	                <div class="controls">
+	                       <button id="summitbtn" class="btn btn-primary">添加</button>
+	                </div>
+	            </form>
+
+            </div>
+            <div class="span3"></div>      
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<include file="adminhead"/>
+  <div class="container">
+    <div class="row">
+        <div class="span1"></div>
+        <div class="span11">
+
+        <legend>书籍列表</legend>
+        <p>&nbsp;</p>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th >书号/光盘号</th>
+              <th >title</th>
+              <th >类别</th>
+              <th >是否在馆</th>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name="book" item="vo">
+            <tr>
+              <td>{$vo.id}</td>
+                <td >{$vo.title}</td>
+                <td >书籍</td>
+                <td >
+                  <if condition="($vo.avail eq 0)">借出
+                  <else />在馆
+                  </if>
+                </td>
+            </tr>
+            </foreach>
+            <foreach name="disc" item="vo">
+            <tr>
+              <td>{$vo.id}</td>
+                <td >{$vo.title}</td>
+                <td >光盘</td>
+                <td >
+                  <if condition="($vo.avail eq 0)">借出
+                  <else />在馆
+                  </if>
+                </td>
+            </tr>
+            </foreach>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+</body>

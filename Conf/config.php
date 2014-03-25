@@ -13,6 +13,6 @@ return array(
 	 'URL_ROUTE_RULES' => array( //定义路由规则
 	 ),
 	 'APP_STATUS' => 'debug', //应用调试模式状态
-	 'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
+	 'SHOW_PAGE_TRACE' =>1, // 显示页面Trace信息
 );
 ?>
